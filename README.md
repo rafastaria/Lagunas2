@@ -9,7 +9,7 @@
 ### Instalación
 
 - npm install
-- sudo apt-get install pandoc
+- sudo apt-get install enscript ps2pdf
 
 ### Ejecutar
 
