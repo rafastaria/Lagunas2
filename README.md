@@ -1,9 +1,20 @@
 # Lagunas2
+
 # POO Otoño 2019
 
-## 2 DO PARCIAL
+## PROYECTO FINAL
 
-&nbsp;
+## INSTRUCCIONES:
+
+### Instalación
+
+- npm install
+- sudo apt-get install pandoc
+
+### Ejecutar
+
+1. cd src
+2. node index.js
 
 ## DATOS PERSONALES:
 
