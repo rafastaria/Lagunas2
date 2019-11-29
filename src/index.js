@@ -1,4 +1,9 @@
-const { extract, convertPDF, createtxtFile } = require("./functions/index");
+const {
+  extract,
+  convertPDF,
+  createtxtFile,
+  convertMp3
+} = require("./functions/index");
 const { mainConfig } = require("./config/index");
 const test = "./media/test.jpg";
 
@@ -10,7 +15,8 @@ function main() {
     .then(string => {
       createtxtFile(string);
     })
-    .then(() => convertPDF());
+    .then(() => convertPDF())
+    .then(() => convertMp3());
 }
 
 main();
