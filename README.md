@@ -16,9 +16,9 @@
 1. cd src
 2. node index.js
 
-##
+## INFORMACIÓN:
 
-### DATOS PERSONALES:
+### DATOS PERSONALES
 
 - Rafael Lagunas Guitrón
 - Github: @rafastaria Gmail:
