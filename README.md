@@ -16,13 +16,13 @@
 1. cd src
 2. node index.js
 
-## DATOS PERSONALES:
+##
+
+### DATOS PERSONALES:
 
 - Rafael Lagunas Guitrón
 - Github: @rafastaria Gmail:
 - 150300810@ucaribe.edu.mx
   &nbsp;
 
-## Objetivos
-
-## Universidad del Caribe, Esquina Fraccionamiento, Tabachines, 77528 Cancún, Q.R.
+### Universidad del Caribe, Esquina Fraccionamiento, Tabachines, 77528 Cancún, Q.R.
