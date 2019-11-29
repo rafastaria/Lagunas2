@@ -1,0 +1,24 @@
+{
+  "name": "repo2",
+  "version": "1.0.0",
+  "description": "## 2 DO PARCIAL",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rafastaria/Lagunas2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rafastaria/Lagunas2/issues"
+  },
+  "homepage": "https://github.com/rafastaria/Lagunas2#readme",
+  "dependencies": {
+    "node-tesseract-ocr": "^1.0.0",
+    "ocr": "^4.0.23"
+  }
+}
