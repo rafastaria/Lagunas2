@@ -6,7 +6,7 @@ var convertMp3 = function() {
       "espeak -f ./outputs/textFiles/test.txt -w ./outputs/mp3/test.wav -g 2.5 -p 140 -s 90",
       function(err, stdout, stderr) {
         if (err) {
-          // should have err.code here?
+          console.log(err);
         }
         console.log(stdout);
       }
