@@ -1,16 +1,17 @@
 var exec = require("child_process").exec;
 
-var convertPDF = function(text) {
+var convertPDF = function() {
   return new Promise(function(resolve, reject) {
-    exec(
-      "enscript -p ./outputs/ps/test.ps ./outputs/textFiles/test.txt",
-      function(err, stdout, stderr) {
-        if (err) {
-          // should have err.code here?
-        }
-        console.log(stdout);
+    exec("ps2pdf ./outputs/ps/test.ps ./outputs/pdf/test.pdf", function(
+      err,
+      stdout,
+      stderr
+    ) {
+      if (err) {
+        console.log(err);
       }
-    );
+      console.log(stdout);
+    });
   });
 };
 
