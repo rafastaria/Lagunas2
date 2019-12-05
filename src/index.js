@@ -3,11 +3,13 @@ const {
   convertPDF,
   createtxtFile,
   convertMp3,
-  convertPS
+  convertPS,
+  MultiFunctions
 } = require("./functions/index");
 const { mainConfig } = require("./config/index");
 const test = "./media/test.jpg";
 
+/*
 function main() {
   extract(test, mainConfig)
     .then(resp => {
@@ -16,7 +18,6 @@ function main() {
     })
     .then(string => {
       console.log("creating text file\n");
-
       createtxtFile(string);
     })
     .then(() => {
@@ -31,6 +32,13 @@ function main() {
       console.log("converting to mp3\n");
       convertMp3();
     });
+}*/
+
+function main() {
+  var functions = new MultiFunctions();
+
+  functions.methodType = process.argv[2];
+  functions.digitalizarUnico(test, mainConfig);
 }
 
 main();

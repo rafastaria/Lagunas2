@@ -18,7 +18,7 @@ _Desarrollado en Node.js con funciones de bash scripting._
 ### Instalación
 
 - npm install
-- sudo apt-get install enscript ps2pdf
+- sudo apt-get install enscript ps2pdf espeak
 
 ### Ejecutar
 
