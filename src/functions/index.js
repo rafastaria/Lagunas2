@@ -14,11 +14,10 @@ class MultiFunctions {
     return this.methodType;
   }
 
-  digitalizarUnico(path, mainConfig) {
+  digitalize(path, mainConfig) {
     switch (this.method) {
       case "extractString":
         extract(path, mainConfig).then(resp => {
-          //console.log(this.method);
           console.log(resp);
         });
         break;
@@ -33,7 +32,6 @@ class MultiFunctions {
             console.log("creating text file\n");
             createtxtFile(string);
           });
-
         break;
 
       case "pdf":
@@ -53,8 +51,67 @@ class MultiFunctions {
           });
         break;
 
+      case "mp3":
+        extract(path, mainConfig)
+          .then(resp => {
+            return resp.toString();
+          })
+          .then(string => {
+            createtxtFile(string);
+          })
+          .then(() => {
+            convertPS();
+          })
+          .then(string => {
+            convertPDF();
+          })
+          .then(() => {
+            console.log("converting to mp3\n");
+            convertMp3();
+          });
+        break;
+
+      case "all":
+        extract(path, mainConfig)
+          .then(resp => {
+            console.log("extracting text... \n");
+            return resp.toString();
+          })
+          .then(string => {
+            console.log("creating text file\n");
+            createtxtFile(string);
+          })
+          .then(() => {
+            console.log("converting to postscript\n");
+            convertPS();
+          })
+          .then(string => {
+            console.log("converting to pdf\n");
+            convertPDF();
+          })
+          .then(() => {
+            console.log("converting to mp3\n");
+            convertMp3();
+          });
+        break;
+
+      case "postscript":
+        extract(path, mainConfig)
+          .then(resp => {
+            console.log("extracting text... \n");
+            return resp.toString();
+          })
+          .then(string => {
+            createtxtFile(string);
+          })
+          .then(() => {
+            console.log("converting to postscript\n");
+            convertPS();
+          });
+        break;
+
       default:
-        console.log(this.method);
+        console.log("error, this method doesn't exists: " + this.method);
     }
   }
 }
