@@ -6,7 +6,7 @@ const { convertPS } = require("./convertPS");
 
 class MultiFunctions {
   constructor() {
-    this.workingClass = " Factory Design Pattern & Encapsulation";
+    this.workingClass = "Factory Design Pattern & Encapsulation";
   }
 
   set method(method) {
