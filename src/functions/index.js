@@ -5,7 +5,9 @@ const { convertMp3 } = require("./convertMp3");
 const { convertPS } = require("./convertPS");
 
 class MultiFunctions {
-  constructor() {}
+  constructor() {
+    this.workingClass = " Factory Design Pattern & Encapsulation";
+  }
 
   set method(method) {
     this.methodType = method;
@@ -15,6 +17,7 @@ class MultiFunctions {
   }
 
   digitalize(path, mainConfig) {
+    console.log(this.workingClass + "\n");
     switch (this.method) {
       case "extractString":
         extract(path, mainConfig).then(resp => {
@@ -117,10 +120,5 @@ class MultiFunctions {
 }
 
 module.exports = {
-  extract,
-  convertPDF,
-  createtxtFile,
-  convertMp3,
-  convertPS,
   MultiFunctions
 };
