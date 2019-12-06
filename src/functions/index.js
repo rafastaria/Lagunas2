@@ -1,7 +1,7 @@
 const { extract } = require("./extractTXT");
-const { convertPDF } = require("./convertPDF");
-const { createtxtFile } = require("./createtxtFile");
-const { convertMp3 } = require("./convertMp3");
+const { toPDF } = require("./convertPDF");
+const { createtxtFile, toTextFile } = require("./createtxtFile");
+const { toMp3 } = require("./convertMp3");
 const { convertPS } = require("./convertPS");
 
 class MultiFunctions {
@@ -17,6 +17,9 @@ class MultiFunctions {
   }
 
   digitalize(path, mainConfig) {
+    var Mp3 = new toMp3();
+    var PDF = new toPDF();
+    var textFile = new toTextFile();
     console.log(this.workingClass + "\n");
     switch (this.method) {
       case "extractString":
@@ -33,8 +36,9 @@ class MultiFunctions {
           })
           .then(string => {
             console.log("creating text file\n");
-            createtxtFile(string);
+            textFile.createFile(string);
           });
+
         break;
 
       case "pdf":
@@ -43,14 +47,15 @@ class MultiFunctions {
             return resp.toString();
           })
           .then(string => {
-            createtxtFile(string);
+            console.log("creating text file\n");
+            textFile.createFile(string);
           })
           .then(() => {
             convertPS();
           })
           .then(string => {
             console.log("converting to pdf\n");
-            convertPDF();
+            PDF.getPDF();
           });
         break;
 
@@ -60,17 +65,17 @@ class MultiFunctions {
             return resp.toString();
           })
           .then(string => {
-            createtxtFile(string);
+            textFile.createFile(string);
           })
           .then(() => {
             convertPS();
           })
           .then(string => {
-            convertPDF();
+            PDF.getPDF();
           })
           .then(() => {
             console.log("converting to mp3\n");
-            convertMp3();
+            Mp3.getMp3();
           });
         break;
 
@@ -82,7 +87,7 @@ class MultiFunctions {
           })
           .then(string => {
             console.log("creating text file\n");
-            createtxtFile(string);
+            textFile.createFile(string);
           })
           .then(() => {
             console.log("converting to postscript\n");
@@ -90,11 +95,11 @@ class MultiFunctions {
           })
           .then(string => {
             console.log("converting to pdf\n");
-            convertPDF();
+            PDF.getPDF();
           })
           .then(() => {
             console.log("converting to mp3\n");
-            convertMp3();
+            Mp3.getMp3();
           });
         break;
 
@@ -105,7 +110,7 @@ class MultiFunctions {
             return resp.toString();
           })
           .then(string => {
-            createtxtFile(string);
+            textFile.createFile(string);
           })
           .then(() => {
             console.log("converting to postscript\n");
@@ -115,6 +120,23 @@ class MultiFunctions {
 
       default:
         console.log("error, this method doesn't exists: " + this.method);
+    }
+  }
+
+  testFiles() {
+    var PDF = new toPDF();
+    var textFile = new toTextFile();
+    switch (this.method) {
+      case "viewPDF":
+        PDF.viewPDF();
+        break;
+
+      case "editTXT":
+        textFile.editFile();
+        break;
+      default:
+        console.log("error, this function doesn't exists " + this.method);
+        break;
     }
   }
 }
